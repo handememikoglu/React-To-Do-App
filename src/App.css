@@ -37,6 +37,7 @@ body{
   border-radius: 50%;
   border: none;
   padding: 23px;
+  cursor: pointer;
   i{
     color: white;
   }
@@ -74,7 +75,6 @@ body{
   input{
     border: none;
     outline: none;
-    /* margin-bottom: 54px; */
     margin-inline: 29px;
     margin-block: 43px;
     padding: 20px 10px;
@@ -87,5 +87,31 @@ body{
     border-radius: 8px;
     padding-block: 18px;
     margin-inline: 14px;
+    cursor: pointer;
+  }
+}
+.edit-page-container{
+  display: flex;
+  flex-direction: column;
+  input{
+    border: none;
+    outline: none;
+    padding: 20px 10px;
+    margin-inline: 14px;
+    margin-block: 43px;
+    border-radius: 5px;
+  }
+}
+.edit-page-btns{
+  display: flex;
+  justify-content:space-between;
+  padding-inline: 14px;
+  button{
+    padding: 23px 60px;
+    background-color: #9395D3;
+    border-radius: 8px;
+    border: none;
+    color: white;
+
   }
 }
