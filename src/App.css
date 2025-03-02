@@ -1,0 +1,80 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  max-width: 414px;
+}
+.header-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #9395D3;
+  padding: 60px 19px 23px 19px;
+  button{
+    border: none;
+    background-color: transparent;
+    color: white;
+  }
+  i{
+    color: white;
+  }
+}
+.page-container{
+  background-color: #d6d7ef;
+  height: 500px;
+}
+.add-btn-container{
+  display: flex;
+  justify-content:flex-end;
+  align-items: flex-end;
+  height: 80px;
+  padding-inline: 22px;
+}
+.add-Btn{
+  background-color: #9395D3;
+  border-radius: 50%;
+  border: none;
+  padding: 23px;
+  i{
+    color: white;
+  }
+}
+.lists{
+  padding-inline: 7px;
+  padding-block: 22px;
+}
+.list-ToDo{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 19px;
+  background-color: white;
+  border-radius: 8px;
+  list-style: none;
+  margin-bottom: 22px;
+}
+.list-btn-container{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    i{
+      color: #9395D3;
+    }
+  }
+}
+.addToDo-container{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  input{
+    border: none;
+    outline: none;
+    margin-bottom: 54px;
+  }
+}
