@@ -5,6 +5,7 @@
 }
 body{
   max-width: 414px;
+  background-color: #333;
 }
 .header-container{
   display: flex;
@@ -16,6 +17,7 @@ body{
     border: none;
     background-color: transparent;
     color: white;
+    cursor: pointer;
   }
   i{
     color: white;
@@ -113,5 +115,54 @@ body{
     border: none;
     color: white;
 
+  }
+}
+.footer{
+  display: flex;
+  justify-content: space-around;
+  position: sticky;
+  top: 100vh;
+  background-color: white;
+  color:#8B8787;
+  text-align: center;
+  padding: 10px;
+  button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  i{
+    color:#8B8787;
+  }
+}
+.completed-tasks{
+  li{
+    background-color: white;
+    margin-bottom: 10px;
+  }
+}
+.all-tasks{
+  h2{
+    margin-bottom: 10px;
+  }
+}
+.completed-ToDo {
+  color: gray;
+  text-decoration: line-through; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 19px;
+  background-color: white;
+  border-radius: 8px;
+  list-style: none;
+  margin-bottom: 22px;
+  button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    i{
+      color:#9395D3;
+    }
   }
 }

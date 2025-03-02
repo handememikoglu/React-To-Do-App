@@ -8,6 +8,7 @@ function App() {
   const[toDo, setToDo] = useState("");
   const [toDos, setToDos] = useState([]);
   const [editToDo, setEditToDo] = useState(null);
+  const [complete, setComplete] = useState([]);
 
   const handleChange =(e) =>{
     setToDo(e.target.value);
@@ -23,6 +24,9 @@ function App() {
   const deleteTask = (id) =>{
     const filterTask = toDos.filter((todo) => todo.id !== id);
     setToDos(filterTask);
+
+    const filterCompleted = complete.filter(todo => todo.id !== id);
+    setComplete(filterCompleted);
   }
 
   const editTask = (todo) => {
@@ -39,6 +43,12 @@ function App() {
   }
   const handleCancel = () =>  {
     setPage("index");
+  }
+
+  const complatedTask = (id) => {
+    const findTask = toDos.find(todo => todo.id === id);
+    setComplete([...complete,findTask]);
+    setToDos(toDos.filter(todo => todo.id !== id));
   }
 
   return (
@@ -59,18 +69,28 @@ function App() {
                       <div className="list-btn-container">
                         <button onClick={() => editTask(todo)}><i className="fa-solid fa-pencil"></i></button>
                         <button onClick={() => deleteTask(todo.id)}><i className="fa-solid fa-trash-can"></i></button>
-                        <button><i className="fa-solid fa-circle-check"></i></button>
+                        <button onClick={() => complatedTask(todo.id)}><i className="fa-solid fa-circle-check"></i></button>
                       </div>
                     </li>
                   ))}
                 </ul>
               </div>
 
-            <div className="add-btn-container">
-              <button onClick={() => setPage("AddToDo")} className='add-Btn'>
-                <i class="fa-solid fa-plus"></i>
-              </button>
-            </div>
+              <div className="add-btn-container">
+                <button onClick={() => setPage("AddToDo")} className='add-Btn'>
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+              <div className='footer'>
+              <div className="div">
+                    <button onClick={() => setPage("allPage")}><i class="fa-regular fa-rectangle-list"></i></button>
+                    <p>All</p>
+                  </div>
+                  <div>
+                    <button onClick={() => setPage("CompletedPage")}><i class="fa-solid fa-check"></i></button>
+                    <p>Completed</p>
+                  </div>
+              </div>
           </>
             
           )
@@ -96,6 +116,54 @@ function App() {
                 </div>
               </div>
             </>
+          )
+        }
+        {
+          page === "CompletedPage" && (
+            <>
+              {complete.length > 0 && (
+              <div className="completed-tasks">
+                <h2>Tamamlanan Görevler</h2>
+                <ul>
+                  {complete.map((todo) => (
+                    <li key={todo.id} className="completed-ToDo">{todo.text}</li>
+                  ))}
+                </ul>
+              </div>
+              )} 
+            </>
+             
+          )
+        }
+        {
+          page === "allPage" && (
+            <>
+            <div className="all-tasks">
+              <h2>Tüm Görevler</h2>
+              <ul>
+                {toDos.map((todo) => (
+                  <li key={todo.id} className="list-ToDo">
+                    {todo.text} 
+                    <div className="list-btn-container">
+                      <button onClick={() => editTask(todo)}><i className="fa-solid fa-pencil"></i></button>
+                      <button onClick={() => deleteTask(todo.id)}><i className="fa-solid fa-trash-can"></i></button>
+                      <button onClick={() => complatedTask(todo.id)}><i className="fa-solid fa-circle-check"></i></button>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+      
+              <h2>Tamamlanan Görevler</h2>
+              <ul>
+                {complete.map((todo) => (
+                  <li key={todo.id} className="completed-ToDo">
+                    <p>{todo.text}</p> 
+                    <button onClick={() => deleteTask(todo.id)}><i className="fa-solid fa-trash-can"></i></button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </>
           )
         }
       </div>
