@@ -69,12 +69,23 @@ body{
   }
 }
 .addToDo-container{
-  background-color: white;
   display: flex;
   flex-direction: column;
   input{
     border: none;
     outline: none;
-    margin-bottom: 54px;
+    /* margin-bottom: 54px; */
+    margin-inline: 29px;
+    margin-block: 43px;
+    padding: 20px 10px;
+    border-radius: 5px;
+  }
+  button{
+    border: none;
+    background-color: #9395D3;
+    color: white;
+    border-radius: 8px;
+    padding-block: 18px;
+    margin-inline: 14px;
   }
 }

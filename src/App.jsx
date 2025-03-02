@@ -14,11 +14,14 @@ function App() {
   const handleAdd = () => {
     if(toDo.trim() !== ""){
       const newToDo = { id: Date.now(), text: toDo };
-    console.log("Yeni To-Do Eklendi:", newToDo); 
-    setToDos([...toDos, newToDo]); 
-    setToDo(""); 
-    setPage("index"); 
+      setToDos([...toDos, newToDo]); 
+      setToDo(""); 
+      setPage("index"); 
     }
+  }
+  const deleteTask = (id) =>{
+    const filterTask = toDos.filter((todo) => todo.id !== id);
+    setToDos(filterTask);
   }
 
   return (
@@ -38,7 +41,7 @@ function App() {
                       {todo.text} 
                       <div className="list-btn-container">
                         <button><i className="fa-solid fa-pencil"></i></button>
-                        <button><i className="fa-solid fa-trash-can"></i></button>
+                        <button onClick={() => deleteTask(todo.id)}><i className="fa-solid fa-trash-can"></i></button>
                         <button><i className="fa-solid fa-circle-check"></i></button>
                       </div>
                     </li>
@@ -58,8 +61,8 @@ function App() {
         {
           page === "AddToDo" && (
             <div className="addToDo-container">
-              <input type="text" placeholder='Add To Do' name='toDo' value={toDo} onChange={handleChange}/>
-              <button onClick={handleAdd}>Add</button>
+              <input type="text" placeholder='Title...' name='toDo' value={toDo} onChange={handleChange}/>
+              <button onClick={handleAdd}>ADD</button>
             </div>
           )
         }
